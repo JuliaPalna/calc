@@ -1,12 +1,16 @@
-import ButtonApp from "../button/Button";
+import { ButtonApp } from '../Button';
 
-export default function GoupButtonsNumbers({}) {
-  const numbers = Array.from(
+export function GoupButtonsNumbers({ onClick }) {
+  const buttonsNumbers = Array.from(
     Array(10)
       .keys()
       .map((number) => {
-        return <ButtonApp>{number}</ButtonApp>;
-      })
+        return (
+          <ButtonApp variant="outline" key={number} onClick={onClick}>
+            {number}
+          </ButtonApp>
+        );
+      }),
   );
-  return numbers;
+  return buttonsNumbers;
 }

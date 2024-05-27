@@ -1,9 +1,9 @@
-import { Box, Text, Button } from "@chakra-ui/react";
+import { Button } from '@chakra-ui/react';
 
-export default function ButtonApp({ variant, expression, onClick, icon }) {
+export function ButtonApp({ variant, key, onClick, children }) {
   return (
-    <Button variant={variant} key={`btn${expression}`} onClick={onClick}>
-      {icon}
+    <Button variant={variant} key={`btn${key}`} onClick={onClick}>
+      {children}
     </Button>
   );
 }
