@@ -1,10 +1,13 @@
 import './App.css';
-import { Menu } from '../src/pages/Menu';
+import { MenuPage } from '../src/pages/MenuPage';
+import { HistoryProvider } from './context/historyContext';
 
 function App() {
   return (
     <div className="App">
-      <Menu></Menu>
+      <HistoryProvider>
+        <MenuPage />
+      </HistoryProvider>
     </div>
   );
 }

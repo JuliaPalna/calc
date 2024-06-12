@@ -1,4 +1,4 @@
-const valuta = [
+const VALUTA = [
   {
     name: 'ruble',
     measure: '100',
@@ -19,7 +19,7 @@ const valuta = [
   },
 ]
 
-const discount = [
+const DISCOUNT = [
   {
     name: 'start price',
     value: 'Первоначальная цена',
@@ -30,7 +30,7 @@ const discount = [
   },
 ]
 
-const date =[
+const DATE =[
     {
         name: 'from',
         value: 'C',
@@ -41,7 +41,7 @@ const date =[
     },
 ]
 
-const length = [
+const LENGTH = [
     {
         name: 'meter',
         measure: 1,
@@ -68,7 +68,7 @@ const length = [
     },
 ]
 
-const square = [
+const SQUARE = [
     {
         name: 'square meter',
         measure: '1',
@@ -107,7 +107,7 @@ const square = [
     },
 ]
 
-const speed = [
+const SPEED = [
     {
         name: 'kilometr per second',
         measure: '1000',
@@ -169,7 +169,7 @@ const speed = [
         shortnameOKEI: 'c',
     },
 ]
-const time = [
+const TIME = [
     {
         name: 'century',
         measure: '36525',
@@ -214,7 +214,7 @@ const time = [
     },
 ]
 
-const data = [
+const DATA = [
     {
         name: 'bytes',
         measure: '1',
@@ -253,7 +253,7 @@ const data = [
     },
 ]
 
-const weight = [
+const WEIGHT = [
     {
         name: 'kilogram',
         measure: '1',
@@ -332,10 +332,9 @@ const weight = [
         nameOKEI: 'Гран',
         shortnameOKEI: 'gr',
     },
-
 ]
 
-const volume = [
+const VOLUME = [
     {
         name: 'decimeter cubic',
         measure: '1e-3',
@@ -362,5 +361,5 @@ const volume = [
     },
 ]
 
-export { length, speed, time,
-    square, valuta, date, data, weight, volume, discount}
+export { LENGTH, SPEED, TIME,
+    SQUARE, VALUTA, DATA, DATE, WEIGHT, VOLUME, DISCOUNT}

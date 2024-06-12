@@ -1,4 +1,4 @@
-import { ButtonApp } from '../button';
+import { ButtonApp } from '../ButtonApp';
 
 export function GoupButtonsNumbers({ onClick }) {
   const buttonsNumbers = Array.from(

@@ -1,4 +1,4 @@
-import { ButtonApp } from '../button';
+import { ButtonApp } from '../ButtonApp';
 import { IconEqual } from '../icon';
 
 export function ButtonEqual({ onClick }) {

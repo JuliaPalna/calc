@@ -1,4 +1,4 @@
-import { ButtonApp } from '../button';
+import { ButtonApp } from '../ButtonApp';
 import { IconBackspace } from '../icon';
 
 export function GroupButtonsDelete({ onClick }) {
@@ -8,7 +8,7 @@ export function GroupButtonsDelete({ onClick }) {
       value: 'AC',
     },
     {
-      id: 'btn-backspace ',
+      id: 'btn-backspace',
       value: <IconBackspace />,
     },
   ];

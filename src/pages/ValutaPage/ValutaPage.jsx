@@ -1,6 +1,6 @@
 import { VStack, Text } from '@chakra-ui/react';
 
-export function Valuta() {
+export function ValutaPage() {
   return (
     <VStack align="stretch" justify="space-between" h="100%">
       <VStack align="stretch" spacing={6}>

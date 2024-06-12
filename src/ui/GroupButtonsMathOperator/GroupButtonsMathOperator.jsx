@@ -1,5 +1,5 @@
 import { AddIcon, CloseIcon, MinusIcon } from '@chakra-ui/icons';
-import { ButtonApp } from '../button';
+import { ButtonApp } from '../ButtonApp';
 
 export function GroupButtonsMathOperator({ onClick }) {
   const arrayButtonsCount = [
