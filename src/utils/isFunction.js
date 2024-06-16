@@ -1,4 +1,4 @@
-const isZero = (string) => string === '0';
+const isZero = (string) => string === '0' || string === 0;
 const isLengthLessTwo = (string) => string.length <= 1;
 const isNumber = (element) => Number.isFinite(+element);
 const isPoint = (element) => element === '.';

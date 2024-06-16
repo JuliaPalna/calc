@@ -8,7 +8,9 @@ export const HistoryProvider = (props) => {
   const [history, setHistory] = useState([]);
 
   return (
-    <HistoryContext.Provider value={{ history, setHistory }}>{children}</HistoryContext.Provider>
+    <HistoryContext.Provider value={{ history, setHistory }}>
+      {children}
+    </HistoryContext.Provider>
   );
 };
 

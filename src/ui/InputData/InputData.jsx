@@ -1,17 +1,14 @@
-import React from 'react';
 import { HStack, Text, Input } from '@chakra-ui/react';
 
 export function InputData({ array, type, w, counts, onChange }) {
   const elements = array.map((item, i) => {
     return (
-      <HStack key={`dis-${i}`} justify="space-between">
+      <HStack>
         <Text>{item.value}</Text>
         <Input
-          type={type}
-          w={w}
+          // type={type}
           textAlign="right"
-          variant="unstyled"
-          value={counts[i]}
+          // value={counts[i]}
           onChange={onChange}
         />
       </HStack>

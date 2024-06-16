@@ -15,7 +15,7 @@ export function GroupButtonsDelete({ onClick }) {
 
   return arrayButtonsDelete.map((button) => {
     return (
-      <ButtonApp key={button.id} onClick={onClick} id={button.id}>
+      <ButtonApp key={button.id} onClick={onClick} id={button.id} flexGrow={1}>
         {button.value}
       </ButtonApp>
     );

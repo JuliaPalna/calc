@@ -1,17 +1,24 @@
-import { Button, Wrap, WrapItem } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
+import { ButtonApp } from '../ButtonApp';
 
 export function ListButtons({ array, onClick }) {
   return (
-    <Wrap>
+    <Grid
+      templateColumns="repeat(3, 1fr)"
+      templateRows="repeat(4, 1fr)"
+      minH={500}
+      maxH={500}
+      gap={2}
+    >
       {array.map((item) => {
         return (
-          <WrapItem flexGrow={1} key={item}>
-            <Button size="xl" variant="listbtn" onClick={onClick}>
-              {item}
-            </Button>
-          </WrapItem>
+          <GridItem>
+            <ButtonApp size="xl" onClick={onClick} id={item.id}>
+              {item.name}
+            </ButtonApp>
+          </GridItem>
         );
       })}
-    </Wrap>
+    </Grid>
   );
 }

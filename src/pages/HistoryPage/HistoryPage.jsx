@@ -6,11 +6,14 @@ export function HistoryPage() {
   const { history } = useHistory();
 
   return (
-    <List>
+    <List minH={500} maxH={500}>
       {history.map((item) => {
         return (
           <ListItem key={item.result}>
-            <ExpressionView expressionUp={item.counting} expressionDown={item.result} />
+            <ExpressionView
+              expressionUp={item.counting}
+              expressionDown={item.result}
+            />
           </ListItem>
         );
       })}
