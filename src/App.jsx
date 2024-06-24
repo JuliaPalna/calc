@@ -1,15 +1,15 @@
 import './App.css';
 import { MenuPage } from '../src/pages/MenuPage';
 import { HistoryProvider } from './context/historyContext';
-import { UnitProvider } from './context/unitContext';
+import { PhysicalQuntityProvider } from './context/physicalQuantityContext';
 
 function App() {
   return (
     <div className="App">
       <HistoryProvider>
-        <UnitProvider>
+        <PhysicalQuntityProvider>
           <MenuPage />
-        </UnitProvider>
+        </PhysicalQuntityProvider>
       </HistoryProvider>
     </div>
   );

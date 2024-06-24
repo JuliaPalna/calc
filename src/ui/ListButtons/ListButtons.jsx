@@ -12,7 +12,7 @@ export function ListButtons({ array, onClick }) {
     >
       {array.map((item) => {
         return (
-          <GridItem>
+          <GridItem key={item.id}>
             <ButtonApp size="xl" onClick={onClick} id={item.id}>
               {item.name}
             </ButtonApp>

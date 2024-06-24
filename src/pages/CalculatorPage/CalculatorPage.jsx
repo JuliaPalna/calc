@@ -16,28 +16,26 @@ import { addHistory } from '../../utils/addHistory';
 import { getElementID } from '../../utils/mathFunction';
 
 export function CalculatorPage() {
-  const [mathExpression, result, setExpression] = useCalculator();
+  const { expression, resultCalc, calculateExpression } = useCalculator();
   const { history, setHistory } = useHistory();
 
   const handelClickButtonEqual = (e) => {
-    setExpression(e);
+    calculateExpression(e);
     setHistory(
       addHistory({
         array: history,
-        counting: mathExpression,
-        result: result,
+        counting: expression,
+        result: resultCalc,
         page: 'calculator',
       }),
     );
   };
 
   const handelClickButtonDelete = (e) => {
+    calculateExpression(e);
     const element = getElementID(e);
-    setExpression(e);
 
-    if (element === 'btn-delete') {
-      setHistory([]);
-    }
+    if (element === 'btn-delete') setHistory([]);
   };
 
   return (
@@ -50,28 +48,28 @@ export function CalculatorPage() {
     >
       <GridItem rowStart={1} rowEnd={2} colStart={1} colEnd={5}>
         <ExpressionView
-          expressionUp={mathExpression}
-          expressionDown={result}
+          expressionUp={expression}
+          expressionDown={resultCalc}
         ></ExpressionView>
       </GridItem>
 
       <GridItem rowStart={3} rowEnd={4} colStart={1} colEnd={5}>
         <SimpleGrid columns={4} spacing={2}>
           <GroupButtonsDelete onClick={handelClickButtonDelete} />
-          <ButtonPercent onClick={setExpression} />
+          <ButtonPercent onClick={calculateExpression} />
         </SimpleGrid>
       </GridItem>
 
       <GridItem rowStart={3} rowEnd={5} colStart={4} colEnd={4} gap={2}>
         <Flex direction="column" gap={2}>
-          <GroupButtonsMathOperator onClick={setExpression} />
+          <GroupButtonsMathOperator onClick={calculateExpression} />
           <ButtonEqual onClick={handelClickButtonEqual} />
         </Flex>
       </GridItem>
 
       <GridButtonsNumbers>
-        <GoupButtonsNumbers onClick={setExpression} />
-        <ButtonPoint onClick={setExpression} />
+        <GoupButtonsNumbers onClick={calculateExpression} />
+        <ButtonPoint onClick={calculateExpression} />
       </GridButtonsNumbers>
     </Grid>
   );

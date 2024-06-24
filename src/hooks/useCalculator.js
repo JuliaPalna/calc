@@ -11,22 +11,23 @@ import { isMathOperator } from '../utils/isMathOperator';
 import { isPoint } from '../utils/isFunction';
 
 export const useCalculator = () => {
-  const [mathExpression, setMathExpression] = useState('0');
-  const [result, setResult] = useState(0);
+  const [expression, setExpression] = useState('0');
+  const [resultCalc, setResultCalc] = useState(0);
 
-  const setExpression = (e) => {
-    const element = getElementID(e);
-    const newExpression = getMathExpression(mathExpression, element);
+  const calculateExpression = (e) => {
+    const elementId = getElementID(e);
+    const newExpression = getMathExpression(expression, elementId);
     const lastElement = getLastElement(newExpression);
 
     const resultСalculation =
-      isMathOperator(lastElement) || isPoint(lastElement)
+      isMathOperator(lastElement)
+      || isPoint(lastElement)
         ? deleteLastElement(newExpression)
         : newExpression;
 
-    setMathExpression(newExpression);
-    setResult(getValueStringExpression(resultСalculation));
+    setExpression(newExpression);
+    setResultCalc(getValueStringExpression(resultСalculation));
   };
 
-  return [mathExpression, result, setExpression];
+  return {expression, resultCalc, calculateExpression};
 };

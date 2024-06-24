@@ -7,7 +7,7 @@ export const addPercent = (expression) => {
   let newExpression = expression;
 
   const indexMathOperator = searchIndexLastMathOperator(expression);
-  console.log(indexMathOperator)
+
   if (isNotFound(indexMathOperator)) {
     newExpression = calculatePercent(expression).toString();
   } else if (isLastElement(expression, indexMathOperator)) {
@@ -17,7 +17,6 @@ export const addPercent = (expression) => {
     newExpression =
       getPartStringStart(newExpression, indexMathOperator + 1) +
       calculatePercent(number);
-    console.log(indexMathOperator, number);
   }
 
   return newExpression;

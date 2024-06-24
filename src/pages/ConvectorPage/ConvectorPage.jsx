@@ -1,37 +1,30 @@
 import React from 'react';
-import { useState } from 'react';
 import { ListButtons } from '../../ui/ListButtons';
-import { СonvectorUnit } from '../../ui/СonvectorUnit';
+import { СonvectorPhysicalQuntity } from '../../ui/СonvectorPhysicalQuntity';
 import { ARRAYUNITS } from '../../globals/arrayUnits';
 
-import { useUnit } from '../../context/unitContext';
 import { getElementID } from '../../utils/mathFunction';
+import { useConvectorMode } from '../../hooks/useConvectorMode';
+import { usePhysicalQuntity } from '../../context/physicalQuantityContext';
 
 export function ConvectorPage() {
-  const listUnits = 'listUnits';
-  const convectortUnit = 'convectortUnit';
+  const [convectorMode, setConvectorMode] = useConvectorMode();
 
-  const [mode, setMode] = useState(listUnits);
-  const { setUnit } = useUnit();
+  const { setPhysicalQuntity } = usePhysicalQuntity();
 
-  const nahdelClick = (e) => {
-    handelSetMode();
+  const nahdelClickButtonUnit = (e) => {
+    setConvectorMode();
 
-    const el = ARRAYUNITS.filter((item) => item.id === getElementID(e));
-    setUnit(el[0]);
+    const unit = ARRAYUNITS.filter((item) => item.id === getElementID(e));
+    setPhysicalQuntity(unit[0]);
   };
 
-  const isListUnits = (mode) => mode === listUnits;
-
-  const handelSetMode = () => {
-    if (isListUnits(mode)) setMode(convectortUnit);
-    else setMode(listUnits);
-  };
-
-  let application = <ListButtons array={ARRAYUNITS} onClick={nahdelClick} />;
-
-  if (!isListUnits(mode))
-    application = <СonvectorUnit onClick={handelSetMode} />;
+  const application =
+    convectorMode === 'listUnits' ? (
+      <ListButtons array={ARRAYUNITS} onClick={nahdelClickButtonUnit} />
+    ) : (
+      <СonvectorPhysicalQuntity onClick={setConvectorMode} />
+    );
 
   return <React.Fragment>{application}</React.Fragment>;
 }

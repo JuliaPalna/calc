@@ -1,11 +1,6 @@
 import { Heading, Grid, GridItem } from '@chakra-ui/react';
 import { ArrowLeftIcon } from '@chakra-ui/icons';
 
-import { useUnit } from '../../context/unitContext';
-
-import { useCalculator } from '../../hooks/useCalculator';
-import { useConvector } from '../../hooks/useConvector';
-
 import { GoupButtonsNumbers } from '../GroupButtonsNumbers';
 import { GroupButtonsDelete } from '../GroupButtonsDelete';
 import { ButtonApp } from '../ButtonApp';
@@ -13,12 +8,21 @@ import { ButtonPoint } from '../ButtonPoint';
 import { SelectUnit } from '../SelectUnit';
 import { GridButtonsNumbers } from '../GridButtonNumbers/GridButtonNumbers';
 import { GridGroupButtonsDelete } from '../GridGroupButtonsDelete/GridGroupButtonsDelete';
+import { usePhysicalQuntity } from '../../context/physicalQuantityContext';
 
-const handelChange = (e) => e.target;
+import { useConvector } from '../../hooks/useConvector';
 
-export function СonvectorUnit({ onClick }) {
-  const [value, result, setValue] = useCalculator();
-  const { unit } = useUnit();
+export function СonvectorPhysicalQuntity({ onClick }) {
+  const { physicalQuntity } = usePhysicalQuntity();
+  const {
+    expression,
+    calculateExpression,
+    selectFirstRef,
+    selectSecondRef,
+    resultConv,
+    setUnitMeasureFirst,
+    setUnitMeasureSecond,
+  } = useConvector();
 
   return (
     <Grid
@@ -34,21 +38,31 @@ export function СonvectorUnit({ onClick }) {
       </GridItem>
 
       <GridItem rowStart={1} rowEnd={1} colStart={2} colEnd={3}>
-        <Heading>{unit.name}</Heading>
+        <Heading>{physicalQuntity.name}</Heading>
       </GridItem>
 
       <GridItem colStart={1} colEnd={5}>
-        <SelectUnit array={unit.value} onChange={handelChange} value={value} />
-        <SelectUnit array={unit.value} onChange={handelChange} value={result} />
+        <SelectUnit
+          refSelect={selectFirstRef}
+          array={physicalQuntity.value}
+          onChange={setUnitMeasureFirst}
+          value={expression}
+        />
+        <SelectUnit
+          refSelect={selectSecondRef}
+          array={physicalQuntity.value}
+          onChange={setUnitMeasureSecond}
+          value={resultConv}
+        />
       </GridItem>
 
       <GridButtonsNumbers>
-        <GoupButtonsNumbers onClick={setValue} />
-        <ButtonPoint onClick={setValue} />
+        <GoupButtonsNumbers onClick={calculateExpression} />
+        <ButtonPoint onClick={calculateExpression} />
       </GridButtonsNumbers>
 
       <GridGroupButtonsDelete>
-        <GroupButtonsDelete onClick={setValue} />
+        <GroupButtonsDelete onClick={calculateExpression} />
       </GridGroupButtonsDelete>
     </Grid>
   );

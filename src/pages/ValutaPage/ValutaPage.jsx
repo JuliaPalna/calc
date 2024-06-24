@@ -2,8 +2,7 @@ import { Grid, GridItem } from '@chakra-ui/react';
 
 import { VALUTA } from '../../globals/valuta';
 
-import { useCalculator } from '../../hooks/useCalculator';
-// import { useValuta } from '../../hooks/useValuta';
+import { useConvector } from '../../hooks/useConvector';
 
 import { GroupButtonsDelete } from '../../ui/GroupButtonsDelete';
 import { GridButtonsNumbers } from '../../ui/GridButtonNumbers/GridButtonNumbers';
@@ -13,9 +12,15 @@ import { GridGroupButtonsDelete } from '../../ui/GridGroupButtonsDelete/GridGrou
 import { SelectUnit } from '../../ui/SelectUnit';
 
 export function ValutaPage() {
-  const [value, result, setValue] = useCalculator();
-
-  const handelChange = (e) => e.target;
+  const {
+    expression,
+    calculateExpression,
+    selectFirstRef,
+    selectSecondRef,
+    resultConv,
+    setUnitMeasureFirst,
+    setUnitMeasureSecond,
+  } = useConvector();
 
   return (
     <Grid
@@ -26,18 +31,28 @@ export function ValutaPage() {
       gap={2}
     >
       <GridItem colStart={1} colEnd={5} rowStart={1} rowEnd={3}>
-        <SelectUnit array={VALUTA} onChange={handelChange} value={value} />
-        <SelectUnit array={VALUTA} onChange={handelChange} value={result} />
+        <SelectUnit
+          refSelect={selectFirstRef}
+          array={VALUTA}
+          onChange={setUnitMeasureFirst}
+          value={expression}
+        />
+        <SelectUnit
+          refSelect={selectSecondRef}
+          array={VALUTA}
+          onChange={setUnitMeasureSecond}
+          value={resultConv}
+        />
         {/* <SelectUnit array={VALUTA} onChange={handelChange} value={result} /> */}
       </GridItem>
 
       <GridGroupButtonsDelete>
-        <GroupButtonsDelete onClick={setValue} />
+        <GroupButtonsDelete onClick={calculateExpression} />
       </GridGroupButtonsDelete>
 
       <GridButtonsNumbers>
-        <GoupButtonsNumbers onClick={setValue} />
-        <ButtonPoint onClick={setValue} />
+        <GoupButtonsNumbers onClick={calculateExpression} />
+        <ButtonPoint onClick={calculateExpression} />
       </GridButtonsNumbers>
     </Grid>
   );
