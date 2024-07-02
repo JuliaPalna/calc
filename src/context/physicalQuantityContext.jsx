@@ -16,6 +16,6 @@ export const PhysicalQuntityProvider = (props) => {
   );
 };
 
-export const usePhysicalQuntity = () => {
+export const usePhysicalQuntityContext = () => {
   return useContext(PhysicalQuntityContext);
 };

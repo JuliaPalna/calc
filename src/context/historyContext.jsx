@@ -14,6 +14,6 @@ export const HistoryProvider = (props) => {
   );
 };
 
-export const useHistory = () => {
+export const useHistoryContext = () => {
   return useContext(HistoryContext);
 };

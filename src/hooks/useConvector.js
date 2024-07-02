@@ -1,8 +1,9 @@
+import { useRef } from 'react';
+
 import { useUnitMeasure } from './useUnitMeasure';
 import { useCalculator } from './useCalculator';
 
 import { convertUnit } from '../utils/convertUnit';
-import { useRef } from 'react';
 
 export const useConvector = () => {
   const { expression, calculateExpression } = useCalculator();
@@ -19,12 +20,16 @@ export const useConvector = () => {
     unitMeasureSecond,
   });
 
-  return {
+  const convector = {
     expression,
     calculateExpression,
+    resultConv,
+  }
+
+  return {
+    convector,
     selectFirstRef,
     selectSecondRef,
-    resultConv,
     setUnitMeasureFirst,
     setUnitMeasureSecond,
   };

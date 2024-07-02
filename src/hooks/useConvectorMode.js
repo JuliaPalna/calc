@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useState } from 'react';
+
+import { LISTUNIT, CONVECTORUNIT } from '../globals/modeConvextor';
 
 export const useConvectorMode = () => {
-  const listUnits = 'listUnits';
-  const convectortUnit = 'convectortUnit';
+  const [convectorMode, setMode] = useState(LISTUNIT);
 
-  const [convectorMode, setMode] = useState(listUnits);
-
-  const isListUnits = (mode) => mode === listUnits;
+  const isListUnits = (mode) => mode === LISTUNIT;
 
   const setConvectorMode = () => {
-    if (isListUnits(convectorMode)) setMode(convectortUnit);
-    else setMode(listUnits);
+    if (isListUnits(convectorMode)) setMode(CONVECTORUNIT);
+    else setMode(LISTUNIT);
   };
 
-  return [convectorMode, setConvectorMode]
+  return [convectorMode, setConvectorMode];
 };

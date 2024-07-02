@@ -1,9 +1,9 @@
 import { List, ListItem } from '@chakra-ui/react';
 import { ExpressionView } from '../../ui/ExpressionView';
-import { useHistory } from '../../context/historyContext';
+import { useHistoryContext } from '../../context/historyContext';
 
 export function HistoryPage() {
-  const { history } = useHistory();
+  const { history } = useHistoryContext();
 
   return (
     <List minH={500} maxH={500}>
