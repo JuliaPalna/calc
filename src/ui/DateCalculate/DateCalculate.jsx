@@ -1,11 +1,13 @@
-import { Center, HStack, Heading, Text, VStack } from '@chakra-ui/react';
-import { InputData } from '../InputData';
+import { Center, HStack, Heading, Input, Text, VStack } from '@chakra-ui/react';
+import { useDateCalculate } from '../../hooks/useDateCalculate';
 
-export const ConvectorDate = () => {
+export function DateCalculate() {
+  const { date, setDate, result } = useDateCalculate();
+
   return (
     <VStack pb="40%" gap="50px" align="stretch">
       <VStack align="stretch" spacing={10}>
-        <InputData />
+        <Input type="date" value={date} onChange={setDate} />
       </VStack>
 
       <VStack p="50px 0">
@@ -14,21 +16,21 @@ export const ConvectorDate = () => {
           <HStack align="start" gap="35px">
             <VStack gap="15px">
               <Text>Лет</Text>
-              <Text h="20px"></Text>
+              <Text h="20px">{result.year}</Text>
             </VStack>
 
             <VStack gap="15px">
               <Text>Месяцев</Text>
-              <Text h="20px"></Text>
+              <Text h="20px">{result.month}</Text>
             </VStack>
 
             <VStack gap="15px">
               <Text>Дней</Text>
-              <Text h="20px"></Text>
+              <Text h="20px">{result.day}</Text>
             </VStack>
           </HStack>
         </Center>
       </VStack>
     </VStack>
   );
-};
+}

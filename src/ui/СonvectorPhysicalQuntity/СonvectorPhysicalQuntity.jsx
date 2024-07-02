@@ -1,12 +1,26 @@
-import { Heading, Grid, GridItem, Flex } from '@chakra-ui/react';
+import { Heading, Flex } from '@chakra-ui/react';
 import { ArrowLeftIcon } from '@chakra-ui/icons';
 
 import { ButtonApp } from '../ButtonApp';
 import { usePhysicalQuntityContext } from '../../context/physicalQuantityContext';
+
 import { WorTableConvector } from '../WorkTableConvector';
+import { DateCalculate } from '../DateCalculate';
+import { DiscountCalculate } from '../DiscountCalculate';
 
 export function СonvectorPhysicalQuntity({ onClick }) {
   const { physicalQuntity } = usePhysicalQuntityContext();
+
+  let el;
+
+  if (physicalQuntity.name === 'Дата') {
+    console.log(physicalQuntity.name);
+    el = <DateCalculate array={physicalQuntity.value} />;
+  } else if (physicalQuntity.name === 'Скидка') {
+    el = <DiscountCalculate array={physicalQuntity.value} />;
+  } else {
+    el = <WorTableConvector array={physicalQuntity.value} />;
+  }
 
   return (
     <Flex flexDir={'column'} gap={5}>
@@ -18,7 +32,7 @@ export function СonvectorPhysicalQuntity({ onClick }) {
         <Heading>{physicalQuntity.name}</Heading>
       </Flex>
 
-      <WorTableConvector array={physicalQuntity.value} />
+      {el}
     </Flex>
   );
 }
