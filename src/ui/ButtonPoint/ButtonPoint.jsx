@@ -1,6 +1,6 @@
 import { ButtonApp } from '../ButtonApp';
 
-export function ButtonPoint({ onClick }) {
+export const ButtonPoint = ({ onClick }) => {
   const buttonPoint = {
     id: 'btn-point',
     value: '.',
@@ -10,4 +10,4 @@ export function ButtonPoint({ onClick }) {
       {buttonPoint.value}
     </ButtonApp>
   );
-}
+};

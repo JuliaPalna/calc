@@ -1,7 +1,7 @@
 import { ButtonApp } from '../ButtonApp';
 import { IconBackspace } from '../icon';
 
-export function GroupButtonsDelete({ onClick }) {
+export const GroupButtonsDelete = ({ onClick }) => {
   const arrayButtonsDelete = [
     {
       id: 'btn-delete',
@@ -20,4 +20,4 @@ export function GroupButtonsDelete({ onClick }) {
       </ButtonApp>
     );
   });
-}
+};

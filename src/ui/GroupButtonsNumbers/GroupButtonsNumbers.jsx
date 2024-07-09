@@ -1,6 +1,6 @@
 import { ButtonApp } from '../ButtonApp';
 
-export function GoupButtonsNumbers({ onClick }) {
+export const GoupButtonsNumbers = ({ onClick }) => {
   const buttonsNumbers = Array.from(
     Array(10)
       .keys()
@@ -13,4 +13,4 @@ export function GoupButtonsNumbers({ onClick }) {
       }),
   );
   return buttonsNumbers;
-}
+};

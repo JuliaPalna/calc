@@ -7,7 +7,7 @@ import { GoupButtonsNumbers } from '../../ui/GroupButtonsNumbers';
 import { ButtonPoint } from '../../ui/ButtonPoint';
 import { SelectUnit } from '../../ui/SelectUnit';
 
-export function WorTableConvector({ array }) {
+export const WorTableConvector = ({ array }) => {
   const {
     convector,
     selectFirstRef,
@@ -51,4 +51,4 @@ export function WorTableConvector({ array }) {
       </GridItem>
     </Grid>
   );
-}
+};

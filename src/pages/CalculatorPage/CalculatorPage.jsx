@@ -14,7 +14,7 @@ import { ButtonPoint } from '../../ui/ButtonPoint';
 import { addHistory } from '../../utils/addHistory';
 import { getElementID } from '../../utils/mathFunction';
 
-export function CalculatorPage() {
+export const CalculatorPage = () => {
   const { expression, resultCalc, calculateExpression } = useCalculator();
   const { history, setHistory } = useHistoryContext();
 
@@ -74,4 +74,4 @@ export function CalculatorPage() {
       </GridItem>
     </Grid>
   );
-}
+};

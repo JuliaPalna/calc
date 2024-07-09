@@ -1,7 +1,7 @@
 import { ButtonApp } from '../ButtonApp';
 import { IconPercent } from '../icon';
 
-export function ButtonPercent({ onClick }) {
+export const ButtonPercent = ({ onClick }) => {
   const buttonPercent = {
     id: 'btn-percent',
     value: <IconPercent />,
@@ -11,4 +11,4 @@ export function ButtonPercent({ onClick }) {
       {buttonPercent.value}
     </ButtonApp>
   );
-}
+};

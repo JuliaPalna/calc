@@ -6,4 +6,12 @@ const isLastElement = (string, index) => index === string.length - 1;
 const isNotFound = (index) => index === -1;
 const isInclude = (string, element) => string.includes(element);
 
-export { isZero, isLengthLessTwo, isNumber, isLastElement, isNotFound, isInclude, isPoint };
+export {
+  isZero,
+  isLengthLessTwo,
+  isNumber,
+  isLastElement,
+  isNotFound,
+  isInclude,
+  isPoint,
+};

@@ -1,3 +1,3 @@
-export const calculateDiscount = ({price, discount}) => {
-  return price - price * discount / 100
-}
+export const calculateDiscount = ({ price, discount }) => {
+  return Math.round(price - (price * discount) / 100);
+};

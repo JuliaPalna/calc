@@ -4,7 +4,7 @@ import { ValutaPage } from '../ValutaPage';
 import { ConvectorPage } from '../ConvectorPage';
 import { CalculatorPage } from '../CalculatorPage';
 
-export function MenuPage() {
+export const MenuPage = () => {
   return (
     <Tabs h="100%" w={400} outline="1px solid red">
       <TabList h="5%">
@@ -30,4 +30,4 @@ export function MenuPage() {
       </TabPanels>
     </Tabs>
   );
-}
+};

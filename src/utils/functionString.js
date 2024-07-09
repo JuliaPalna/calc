@@ -6,4 +6,11 @@ const getValueStringExpression = (string) => eval(string);
 
 const deleteLastElement = (string) => string.slice(0, -1);
 
-export { getPartStringStart, getPartStringEnd, getLastElement, deleteLastElement, getLastIndex, getValueStringExpression };
+export {
+  getPartStringStart,
+  getPartStringEnd,
+  getLastElement,
+  deleteLastElement,
+  getLastIndex,
+  getValueStringExpression,
+};

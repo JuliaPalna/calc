@@ -2,7 +2,7 @@ import { List, ListItem } from '@chakra-ui/react';
 import { ExpressionView } from '../../ui/ExpressionView';
 import { useHistoryContext } from '../../context/historyContext';
 
-export function HistoryPage() {
+export const HistoryPage = () => {
   const { history } = useHistoryContext();
 
   return (
@@ -19,4 +19,4 @@ export function HistoryPage() {
       })}
     </List>
   );
-}
+};

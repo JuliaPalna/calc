@@ -1,7 +1,7 @@
 import { ButtonApp } from '../ButtonApp';
 import { IconEqual } from '../icon';
 
-export function ButtonEqual({ onClick }) {
+export const ButtonEqual = ({ onClick }) => {
   const buttonEqual = {
     id: 'btn-equal',
     value: <IconEqual />,
@@ -11,4 +11,4 @@ export function ButtonEqual({ onClick }) {
       {buttonEqual.value}
     </ButtonApp>
   );
-}
+};

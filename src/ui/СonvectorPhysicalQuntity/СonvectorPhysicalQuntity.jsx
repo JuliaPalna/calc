@@ -8,13 +8,12 @@ import { WorTableConvector } from '../WorkTableConvector';
 import { DateCalculate } from '../DateCalculate';
 import { DiscountCalculate } from '../DiscountCalculate';
 
-export function СonvectorPhysicalQuntity({ onClick }) {
+export const СonvectorPhysicalQuntity = ({ onClick }) => {
   const { physicalQuntity } = usePhysicalQuntityContext();
 
   let el;
 
   if (physicalQuntity.name === 'Дата') {
-    console.log(physicalQuntity.name);
     el = <DateCalculate array={physicalQuntity.value} />;
   } else if (physicalQuntity.name === 'Скидка') {
     el = <DiscountCalculate array={physicalQuntity.value} />;
@@ -35,4 +34,4 @@ export function СonvectorPhysicalQuntity({ onClick }) {
       {el}
     </Flex>
   );
-}
+};

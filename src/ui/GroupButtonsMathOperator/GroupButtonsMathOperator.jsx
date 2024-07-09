@@ -1,7 +1,7 @@
 import { AddIcon, CloseIcon, MinusIcon } from '@chakra-ui/icons';
 import { ButtonApp } from '../ButtonApp';
 
-export function GroupButtonsMathOperator({ onClick }) {
+export const GroupButtonsMathOperator = ({ onClick }) => {
   const arrayButtonsCount = [
     {
       id: '+',
@@ -28,4 +28,4 @@ export function GroupButtonsMathOperator({ onClick }) {
       </ButtonApp>
     );
   });
-}
+};

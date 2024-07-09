@@ -1,7 +1,7 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { ButtonApp } from '../ButtonApp';
 
-export function ListButtons({ array, onClick }) {
+export const ListButtons = ({ array, onClick }) => {
   return (
     <Grid
       templateColumns="repeat(3, 1fr)"
@@ -21,4 +21,4 @@ export function ListButtons({ array, onClick }) {
       })}
     </Grid>
   );
-}
+};

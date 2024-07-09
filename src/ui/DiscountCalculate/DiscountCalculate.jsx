@@ -1,6 +1,5 @@
 import React from 'react';
 import { Input, InputGroup, Text } from '@chakra-ui/react';
-
 import { useDiscountCalculate } from '../../hooks/useDiscountCalculate';
 
 export const DiscountCalculate = () => {
@@ -10,12 +9,12 @@ export const DiscountCalculate = () => {
   return (
     <React.Fragment>
       <InputGroup>
-        <Text mb="8px">Price: </Text>
+        <Text mb="8px">Цена: </Text>
         <Input type="number" value={price} onChange={changeInputPrice} />
       </InputGroup>
 
       <InputGroup>
-        <Text mb="8px">Discount: </Text>
+        <Text mb="8px">Скидка: </Text>
         <Input type="number" value={discount} onChange={changeInputDiscount} />
       </InputGroup>
 

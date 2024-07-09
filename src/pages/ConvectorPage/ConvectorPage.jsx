@@ -11,7 +11,7 @@ import { СonvectorPhysicalQuntity } from '../../ui/СonvectorPhysicalQuntity';
 import { useConvectorMode } from '../../hooks/useConvectorMode';
 import { arrayFilter } from '../../utils/arrayFilter';
 
-export function ConvectorPage() {
+export const ConvectorPage = () => {
   const { setPhysicalQuntity } = usePhysicalQuntityContext();
   const [convectorMode, setConvectorMode] = useConvectorMode();
 
@@ -30,4 +30,4 @@ export function ConvectorPage() {
     );
 
   return <React.Fragment>{application}</React.Fragment>;
-}
+};
