@@ -1,14 +1,10 @@
 import { VStack, Text } from '@chakra-ui/react';
 
-export const ExpressionView = ({ expressionUp, expressionDown }) => {
+export const ExpressionView = ({ expressionUp, expressionDown, size }) => {
   return (
     <VStack>
-      <Text textAlign="right" w="100%" h="40px" fontSize="2xl">
-        {expressionUp}
-      </Text>
-      <Text textAlign="right" w="100%" h="40px" fontSize="3xl">
-        {expressionDown}
-      </Text>
+      <Text>{expressionUp}</Text>
+      <Text size={size}>{expressionDown}</Text>
     </VStack>
   );
 };

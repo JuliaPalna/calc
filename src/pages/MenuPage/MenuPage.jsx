@@ -3,18 +3,27 @@ import { HistoryPage } from '../HistoryPage';
 import { ValutaPage } from '../ValutaPage';
 import { ConvectorPage } from '../ConvectorPage';
 import { CalculatorPage } from '../CalculatorPage';
+import { IconUSD, IconCount, IconHistory, IconConv } from '../../ui/icon';
 
 export const MenuPage = () => {
   return (
-    <Tabs h="100%" w={400} outline="1px solid red">
-      <TabList h="5%">
-        <Tab id="calculator">Calculator</Tab>
-        <Tab id="convector">Convector</Tab>
-        <Tab id="valuta">Valuta</Tab>
-        <Tab id="history">History</Tab>
+    <Tabs h="100%">
+      <TabList h="8%">
+        <Tab id="calculator">
+          <IconCount />
+        </Tab>
+        <Tab id="convector">
+          <IconConv />
+        </Tab>
+        <Tab id="valuta">
+          <IconUSD />
+        </Tab>
+        <Tab id="history">
+          <IconHistory />
+        </Tab>
       </TabList>
 
-      <TabPanels h="95%">
+      <TabPanels h="82%">
         <TabPanel h="100%">
           <CalculatorPage />
         </TabPanel>

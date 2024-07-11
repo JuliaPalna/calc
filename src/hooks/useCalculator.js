@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { getElementID } from '../utils/mathFunction';
 import {
   deleteLastElement,
   getLastElement,
@@ -14,14 +13,12 @@ export const useCalculator = () => {
   const [expression, setExpression] = useState('0');
   const [resultCalc, setResultCalc] = useState(0);
 
-  const calculateExpression = (e) => {
-    const elementId = getElementID(e);
+  const calculateExpression = (elementId) => {
     const newExpression = getMathExpression(expression, elementId);
     const lastElement = getLastElement(newExpression);
 
     const resultСalculation =
-      isMathOperator(lastElement)
-      || isPoint(lastElement)
+      isMathOperator(lastElement) || isPoint(lastElement)
         ? deleteLastElement(newExpression)
         : newExpression;
 
@@ -29,5 +26,5 @@ export const useCalculator = () => {
     setResultCalc(getValueStringExpression(resultСalculation));
   };
 
-  return {expression, resultCalc, calculateExpression};
+  return { expression, resultCalc, calculateExpression };
 };

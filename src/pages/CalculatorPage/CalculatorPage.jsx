@@ -1,27 +1,20 @@
-import { Grid, GridItem, Flex, SimpleGrid } from '@chakra-ui/react';
+import { Flex, Divider } from '@chakra-ui/react';
 
 import { useHistoryContext } from '../../context/historyContext';
 
 import { useCalculator } from '../../hooks/useCalculator';
-
-import { ExpressionView } from '../../ui/ExpressionView';
-import { GoupButtonsNumbers } from '../../ui/GroupButtonsNumbers';
-import { GroupButtonsMathOperator } from '../../ui/GroupButtonsMathOperator';
-import { GroupButtonsDelete } from '../../ui/GroupButtonsDelete';
-import { ButtonEqual } from '../../ui/ButtonEqual';
-import { ButtonPercent } from '../../ui/ButtonPercent';
-import { ButtonPoint } from '../../ui/ButtonPoint';
-import { addHistory } from '../../utils/addHistory';
+import { addElementInArray } from '../../utils/addElementInArray';
 import { getElementID } from '../../utils/mathFunction';
+import { ExpressionView } from '../../ui/ExpressionView';
+import { ButtonsGroupCalcArea } from '../../ui/ButtonsGroupCalcArea/ButtonsGroupCalcArea';
 
 export const CalculatorPage = () => {
-  const { expression, resultCalc, calculateExpression } = useCalculator();
   const { history, setHistory } = useHistoryContext();
+  const { expression, resultCalc, calculateExpression } = useCalculator();
 
-  const handelClickButtonEqual = (e) => {
-    calculateExpression(e);
+  const addHistory = () => {
     setHistory(
-      addHistory({
+      addElementInArray({
         array: history,
         counting: expression,
         result: resultCalc,
@@ -30,48 +23,34 @@ export const CalculatorPage = () => {
     );
   };
 
-  const handelClickButtonDelete = (e) => {
-    calculateExpression(e);
-    const isDelete = getElementID(e) === 'btn-delete';
+  const handelClickButtonsGroupArea = (e) => {
+    const buttonID = getElementID(e);
 
-    isDelete && setHistory([]);
+    if (buttonID === 'btn-equal') {
+      calculateExpression(buttonID);
+      addHistory();
+    } else if (buttonID === 'btn-delete') {
+      calculateExpression(buttonID);
+      setHistory([]);
+    } else if (buttonID === 'btn-backspace') {
+      calculateExpression(buttonID);
+      console.log(buttonID);
+    } else {
+      calculateExpression(buttonID);
+    }
   };
 
   return (
-    <Grid
-      templateColumns="repeat(4, 1fr)"
-      templateRows="2fr .3fr 1.5fr"
-      minH={500}
-      maxH={500}
-      gap={2}
-    >
-      <GridItem rowStart={1} rowEnd={2} colStart={1} colEnd={5}>
-        <ExpressionView
-          expressionUp={expression}
-          expressionDown={resultCalc}
-        ></ExpressionView>
-      </GridItem>
+    <Flex direction="column" justify="space-between" gap={4} h="100%">
+      <ExpressionView
+        expressionUp={expression}
+        expressionDown={resultCalc}
+        size="lg"
+      ></ExpressionView>
 
-      <GridItem rowStart={2} rowEnd={3} colStart={1} colEnd={5}>
-        <SimpleGrid columns={4} spacing={2}>
-          <GroupButtonsDelete onClick={handelClickButtonDelete} />
-          <ButtonPercent onClick={calculateExpression} />
-        </SimpleGrid>
-      </GridItem>
+      <Divider />
 
-      <GridItem rowStart={2} rowEnd={4} colStart={4} colEnd={4} gap={2}>
-        <Flex direction="column" gap={2}>
-          <GroupButtonsMathOperator onClick={calculateExpression} />
-          <ButtonEqual onClick={handelClickButtonEqual} />
-        </Flex>
-      </GridItem>
-
-      <GridItem rowStart={3} rowEnd={3} colStart={1} colEnd={4}>
-        <SimpleGrid columns={3} spacing={2}>
-          <GoupButtonsNumbers onClick={calculateExpression} />
-          <ButtonPoint onClick={calculateExpression} />
-        </SimpleGrid>
-      </GridItem>
-    </Grid>
+      <ButtonsGroupCalcArea onClick={handelClickButtonsGroupArea} />
+    </Flex>
   );
 };

@@ -1,4 +1,4 @@
-import { ButtonApp } from '../ButtonApp';
+import { Button } from '@chakra-ui/react';
 
 export const GoupButtonsNumbers = ({ onClick }) => {
   const buttonsNumbers = Array.from(
@@ -6,9 +6,9 @@ export const GoupButtonsNumbers = ({ onClick }) => {
       .keys()
       .map((number) => {
         return (
-          <ButtonApp key={number} onClick={onClick} id={number}>
+          <Button key={number} id={number} variant={'number'} onClick={onClick}>
             {number}
-          </ButtonApp>
+          </Button>
         );
       }),
   );

@@ -1,5 +1,5 @@
 import { AddIcon, CloseIcon, MinusIcon } from '@chakra-ui/icons';
-import { ButtonApp } from '../ButtonApp';
+import { Button } from '@chakra-ui/react';
 
 export const GroupButtonsMathOperator = ({ onClick }) => {
   const arrayButtonsCount = [
@@ -23,9 +23,14 @@ export const GroupButtonsMathOperator = ({ onClick }) => {
 
   return arrayButtonsCount.map((button) => {
     return (
-      <ButtonApp key={button.id} onClick={onClick} id={button.id}>
+      <Button
+        key={button.id}
+        id={button.id}
+        variant={'operator'}
+        onClick={onClick}
+      >
         {button.value}
-      </ButtonApp>
+      </Button>
     );
   });
 };

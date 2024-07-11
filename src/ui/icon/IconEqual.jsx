@@ -6,7 +6,10 @@ export const IconEqual = () => {
       viewBox="0 -960 960 960"
       width="24"
     >
-      <path d="M160-280v-120h640v120H160Zm0-280v-120h640v120H160Z" />
+      <path
+        fill="currentColor"
+        d="M160-280v-120h640v120H160Zm0-280v-120h640v120H160Z"
+      />
     </svg>
   );
 };

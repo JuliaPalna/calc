@@ -1,5 +1,5 @@
 import { useValutaConvector } from '../../hooks/useValutaConvector';
-import { WorTableConvector } from '../../ui/WorkTableConvector';
+import { DesktopViewCustomConv } from '../../ui/DesktopViewCustomConv';
 
 export const ValutaPage = () => {
   // const { measureUsd, measureEuro, setCourseValuta } = useValutaConvector();
@@ -25,5 +25,5 @@ export const ValutaPage = () => {
     },
   ];
 
-  return <WorTableConvector array={VALUTA} />;
+  return <DesktopViewCustomConv array={VALUTA} />;
 };

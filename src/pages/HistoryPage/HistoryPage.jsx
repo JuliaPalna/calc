@@ -6,7 +6,7 @@ export const HistoryPage = () => {
   const { history } = useHistoryContext();
 
   return (
-    <List minH={500} maxH={500}>
+    <List h={'100%'}>
       {history.map((item) => {
         return (
           <ListItem key={item.result}>

@@ -1,14 +1,14 @@
 import './App.css';
-import { MenuPage } from '../src/pages/MenuPage';
 import { HistoryProvider } from './context/historyContext';
 import { PhysicalQuntityProvider } from './context/physicalQuantityContext';
+import { AppCalculator } from './ui/AppCalculator/AppCalculator';
 
 function App() {
   return (
     <div className="App">
       <HistoryProvider>
         <PhysicalQuntityProvider>
-          <MenuPage />
+          <AppCalculator />
         </PhysicalQuntityProvider>
       </HistoryProvider>
     </div>

@@ -5,7 +5,7 @@ export const PhysicalQuntityContext = createContext(null);
 export const PhysicalQuntityProvider = (props) => {
   const { children } = props;
 
-  const [physicalQuntity, setPhysicalQuntity] = useState(null);
+  const [physicalQuntity, setPhysicalQuntity] = useState({ name: null });
 
   return (
     <PhysicalQuntityContext.Provider
