@@ -1,24 +1,25 @@
 import { useState } from 'react';
-import { getDataParseCourseValuta } from '../utils/parcerValuta';
+import { parceCourseValuta } from '../utils/parceCourseValuta';
 
 export const useValutaConvector = () => {
-  const [measureUsd, setMeasureUsd] = useState();
-  const [measureEuro, setMeasureEuro] = useState();
+  const [courseUsd, setCourseUsd] = useState(0.0116);
+  const [courseEuro, setCourseEuro] = useState(0.0107);
 
-  function setCourseValuta() {
-    function getCourseValuta(value) {
-      return getDataParseCourseValuta(value).then();
-    }
+  const setCourseValuta = () => {
+    const getCourseValuta = (value) => {
+      return parceCourseValuta(value).then();
+    };
 
-    const courseUsd = getCourseValuta('USD');
-    const courseEuro = getCourseValuta('EUR');
+    const dataCourseUsd = getCourseValuta('USD');
+    const dataCourseEuro = getCourseValuta('EUR');
 
-    Promise.all([courseUsd, courseEuro])
-      .then(([resulltUsd, resultEuro]) => {
-        setMeasureUsd(resulltUsd)
-        setMeasureEuro(resultEuro)
-    });
-  }
+    Promise.all([dataCourseUsd, dataCourseEuro]).then(
+      ([resulltUsd, resultEuro]) => {
+        setCourseUsd(resulltUsd);
+        setCourseEuro(resultEuro);
+      },
+    );
+  };
 
-  return { measureUsd, measureEuro, setCourseValuta };
+  return { courseUsd, courseEuro, setCourseValuta };
 };

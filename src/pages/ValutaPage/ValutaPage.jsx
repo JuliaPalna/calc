@@ -1,25 +1,30 @@
+import { useEffect } from 'react';
 import { useValutaConvector } from '../../hooks/useValutaConvector';
 import { DesktopViewCustomConv } from '../../ui/DesktopViewCustomConv';
 
 export const ValutaPage = () => {
-  // const { measureUsd, measureEuro, setCourseValuta } = useValutaConvector();
+  const { courseUsd, courseEuro, setCourseValuta } = useValutaConvector();
+
+  useEffect(() => {
+    setCourseValuta();
+  }, [courseUsd, courseEuro]);
 
   const VALUTA = [
     {
       name: 'usd',
-      measure: '1',
+      measure: +courseUsd,
       nameOKEI: 'Доллар США',
       shortnameOKEI: 'USD',
     },
     {
       name: 'ruble',
-      measure: '100',
+      measure: '1',
       nameOKEI: 'Рубль',
       shortnameOKEI: 'RU',
     },
     {
       name: 'eur',
-      measure: '.93',
+      measure: +courseEuro,
       nameOKEI: 'Евро',
       shortnameOKEI: 'EUR',
     },
