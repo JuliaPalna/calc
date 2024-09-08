@@ -15,8 +15,8 @@ export const useValutaConvector = () => {
 
     Promise.all([dataCourseUsd, dataCourseEuro]).then(
       ([resulltUsd, resultEuro]) => {
-        setCourseUsd(resulltUsd);
-        setCourseEuro(resultEuro);
+        if (resulltUsd) setCourseUsd(resulltUsd);
+        if (resultEuro) setCourseEuro(resultEuro);
       },
     );
   };

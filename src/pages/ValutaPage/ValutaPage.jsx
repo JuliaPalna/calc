@@ -7,12 +7,12 @@ export const ValutaPage = () => {
 
   useEffect(() => {
     setCourseValuta();
-  }, [courseUsd, courseEuro]);
+  }, [courseUsd, courseEuro, setCourseValuta]);
 
   const VALUTA = [
     {
       name: 'usd',
-      measure: +courseUsd,
+      measure: courseUsd,
       nameOKEI: 'Доллар США',
       shortnameOKEI: 'USD',
     },
@@ -24,7 +24,7 @@ export const ValutaPage = () => {
     },
     {
       name: 'eur',
-      measure: +courseEuro,
+      measure: courseEuro,
       nameOKEI: 'Евро',
       shortnameOKEI: 'EUR',
     },

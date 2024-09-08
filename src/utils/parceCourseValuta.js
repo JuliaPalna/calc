@@ -3,10 +3,10 @@ const cheerio = require('cheerio');
 
 const url = 'https://www.banki.ru/products/currency/cb/';
 
-// ! CORS Error
+//! CORS Error
 export const parceCourseValuta = async (currency) => {
   try {
-    const array = [];
+    let course = 1;
     const regex = new RegExp(currency);
 
     const config = {
@@ -27,12 +27,12 @@ export const parceCourseValuta = async (currency) => {
         $(i)
           .children()
           .each((e, x) => {
-            array.push($(x).html());
+            course = $(x).html();
           });
       }
     });
 
-    return +array[3];
+    return course;
   } catch (error) {
     if (error.response) {
       // Запрос был сделан, и сервер ответил кодом состояния, который
