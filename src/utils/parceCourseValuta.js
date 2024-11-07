@@ -8,20 +8,17 @@ export const parceCourseValuta = async (currency) => {
   try {
     let course = 1;
     const regex = new RegExp(currency);
-
     const config = {
       method: 'GET',
-      // mode: 'no-cors',
+      mode: 'no-cors',
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         'Content-Type': 'application/json',
       },
     };
-
     const response = await axios.get(url, config);
     const $ = await cheerio.load(response.data);
-
     $('tr').each((e, i) => {
       if ($(i).text().match(regex)) {
         $(i)
@@ -31,7 +28,6 @@ export const parceCourseValuta = async (currency) => {
           });
       }
     });
-
     return course;
   } catch (error) {
     if (error.response) {

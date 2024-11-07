@@ -5,6 +5,11 @@ const isPoint = (element) => element === '.';
 const isLastElement = (string, index) => index === string.length - 1;
 const isNotFound = (index) => index === -1;
 const isInclude = (string, element) => string.includes(element);
+const isMathOperator = (value) => {
+  return (
+    value === '/' || value === '*' || value === '-' || value === '+' || false
+  );
+};
 
 export {
   isZero,
@@ -14,4 +19,5 @@ export {
   isNotFound,
   isInclude,
   isPoint,
+  isMathOperator,
 };

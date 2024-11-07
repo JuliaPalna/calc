@@ -1,4 +1,17 @@
-const getElementID = (element) => element.target.id;
 const calculatePercent = (number) => number / 100;
 
-export { getElementID, calculatePercent };
+function checkButton(e) {
+  const isButton = e.target.closest('button');
+  if (isButton === null) {
+    return;
+  }
+
+  return isButton;
+}
+
+function getButtonId(e) {
+  const isButton = checkButton(e);
+  return isButton?.id;
+}
+
+export { getButtonId, calculatePercent };

@@ -11,16 +11,16 @@ export const ValutaPage = () => {
 
   const VALUTA = [
     {
-      name: 'usd',
-      measure: courseUsd,
-      nameOKEI: 'Доллар США',
-      shortnameOKEI: 'USD',
-    },
-    {
       name: 'ruble',
       measure: '1',
       nameOKEI: 'Рубль',
       shortnameOKEI: 'RU',
+    },
+    {
+      name: 'usd',
+      measure: courseUsd,
+      nameOKEI: 'Доллар США',
+      shortnameOKEI: 'USD',
     },
     {
       name: 'eur',

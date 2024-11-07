@@ -15,7 +15,7 @@ export const SelectUnit = ({ onChange, array, value, refSelect, nameOKEI }) => {
             return (
               <option
                 key={item.id}
-                data-shortnameOKEI={item.shortnameOKEI}
+                data-shortnameokei={item.shortnameOKEI}
                 data-name={item.nameOKEI}
                 data-measure={item.measure}
               >

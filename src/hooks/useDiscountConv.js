@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { calculateDiscount } from '../utils/calculateDiscount';
-import { getElementID } from '../utils/mathFunction';
+import { getButtonId } from '../utils/mathFunction';
 import { getMathExpression } from '../utils/getMathExpression';
 
 export const useDiscountConv = () => {
@@ -21,62 +21,72 @@ export const useDiscountConv = () => {
     setInputDiscountActive(false);
   };
 
-  const changeInputPrice = (e) => {
-    const newValue = e.target.value;
-    setPrice(newValue);
-    const result = calculateDiscount({ price: newValue, discount });
-    const difference = newValue - result;
-    setResult({ value: result, difference: difference });
-  };
+  const changeInput = (e) => {
+    const inputId = e.target.id;
+    const value = e.target.value;
+    let result = 0;
+    let difference = 0;
 
-  const changeInputDiscount = (e) => {
-    const newValue = e.target.value;
-    setDiscount(newValue);
-    const result = calculateDiscount({ price, discount: newValue });
-    const difference = price - result;
+    if (inputId === 'price') {
+      [result, difference] = changePrice(value);
+    } else {
+      [result, difference] = changeDiscount(value);
+    }
+
     setResult({ value: result, difference: difference });
   };
 
   const setInput = (e) => {
-    const buttonID = getElementID(e);
+    const buttonId = getButtonId(e);
 
-    if (buttonID === 'btn-delete') {
+    let result = 0;
+    let difference = 0;
+
+    if (buttonId === 'btn-delete') {
       setPrice(0);
       setDiscount(0);
-      setResult({ value: 0, difference: 0 });
+      setResult({ value: result, difference: difference });
       return;
     }
 
     if (inputPriceActive === true) {
-      const newPrice = getMathExpression(price, buttonID);
-      setPrice(newPrice);
-      const result = calculateDiscount({ price: newPrice, discount });
-      const difference = newPrice - result;
-      setResult({ value: result, difference: difference });
+      const newPrice = getMathExpression(price, buttonId);
+      [result, difference] = changePrice(newPrice);
     }
 
     if (inputDiscountActive === true) {
-      const newDiscount = getMathExpression(discount, buttonID);
-      setDiscount(newDiscount);
-      const result = calculateDiscount({ price, discount: newDiscount });
-      const difference = price - result;
-      setResult({ value: result, difference: difference });
+      const newDiscount = getMathExpression(discount, buttonId);
+      [result, difference] = changeDiscount(newDiscount);
     }
+
+    setResult({ value: result, difference: difference });
+  };
+
+  const changePrice = (value) => {
+    setPrice(value);
+    const result = calculateDiscount({ price: value, discount });
+    const difference = value - result;
+    return [result, difference];
+  };
+
+  const changeDiscount = (value) => {
+    setDiscount(value);
+    const result = calculateDiscount({ price, discount: value });
+    const difference = price - result;
+    return [result, difference];
   };
 
   const inputPrice = {
     value: price,
-    onChange: changeInputPrice,
     focus: inputPriceActive,
     onFocus: focusInputPrice,
   };
 
   const inputDiscount = {
     value: discount,
-    onChange: changeInputDiscount,
     focus: inputDiscountActive,
     onFocus: focusInputDiscount,
   };
 
-  return { inputPrice, inputDiscount, result, setInput };
+  return { inputPrice, inputDiscount, result, setInput, changeInput };
 };

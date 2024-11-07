@@ -12,19 +12,24 @@ export const useDateConv = () => {
     days: 0,
   });
 
-  const changeInitialDate = (e) => {
-    const date = e.target.value;
+  const changeDate = (e) => {
+    let initialValue = initialDate;
+    let finalValue = finalDate;
+    const inputId = e.target.id;
 
-    setInitialDate(date);
-    const duration = calculateDurationTime({ initialDate: date, finalDate });
-    setDifference(duration);
-  };
+    if (inputId === 'initialDate') {
+      initialValue = e.target.value;
+      setInitialDate(initialValue);
+    } else {
+      finalValue = e.target.value;
+      setFinalDate(finalValue);
+    }
 
-  const changeFinalDate = (e) => {
-    const date = e.target.value;
+    const duration = calculateDurationTime({
+      initialDate: initialValue,
+      finalDate: finalValue,
+    });
 
-    setFinalDate(date);
-    const duration = calculateDurationTime({ initialDate, finalDate: date });
     setDifference(duration);
   };
 
@@ -32,7 +37,6 @@ export const useDateConv = () => {
     initialDate,
     finalDate,
     difference,
-    changeInitialDate,
-    changeFinalDate,
+    changeDate,
   };
 };

@@ -1,11 +1,14 @@
 import { getPartStringEnd, getLastElement } from './functionString';
 import { isInclude, isNotFound } from './isFunction';
-import { isMathOperator } from './isMathOperator';
+import { isMathOperator } from './isFunction';
 import { searchIndexLastMathOperator } from './searchIndexLastMathOperator';
 
 export const addPoint = (expression) => {
+  let newExpression;
+
   if (isMathOperator(getLastElement(expression))) {
-    return expression + '0.';
+    newExpression = expression + '0.';
+    return newExpression;
   }
 
   const index = searchIndexLastMathOperator(expression);
@@ -13,12 +16,14 @@ export const addPoint = (expression) => {
 
   if (isIncludeMathOperator) {
     const stringEnd = getPartStringEnd(expression, index + 1);
-    const isIncludePoint = isInclude(stringEnd, '.');
+    const isIncludePointStringEnd = isInclude(stringEnd, '.');
 
-    return isIncludePoint ? expression : expression + '.';
+    newExpression = isIncludePointStringEnd ? expression : expression + '.';
   } else {
-    const isIncludePointExpression = isInclude(expression, '.');
+    const isIncludePoint = isInclude(expression, '.');
 
-    return isIncludePointExpression ? expression : expression + '.';
+    newExpression = isIncludePoint ? expression : expression + '.';
   }
+
+  return newExpression;
 };

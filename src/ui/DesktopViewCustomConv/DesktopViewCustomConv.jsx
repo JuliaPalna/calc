@@ -1,18 +1,10 @@
 import { Flex } from '@chakra-ui/react';
-
 import { useConvector } from '../../hooks/useConvector';
-import { getElementID } from '../../utils/mathFunction';
-
 import { SelectUnit } from '../SelectUnit';
 import { ButtonsGroupCalcAreaMin } from '../ButtonsGroupCalcAreaMin';
 
 export const DesktopViewCustomConv = ({ array }) => {
   const { convector, selectFirst, selectSecond } = useConvector(array);
-
-  const handelClickButtonsGroupArea = (e) => {
-    const buttonID = getElementID(e);
-    convector.calculateExpression(buttonID);
-  };
 
   return (
     <Flex direction="column" justify="space-between" gap={2} h="100%">
@@ -32,7 +24,7 @@ export const DesktopViewCustomConv = ({ array }) => {
         nameOKEI={selectSecond.OKEI}
       />
 
-      <ButtonsGroupCalcAreaMin onClick={handelClickButtonsGroupArea} />
+      <ButtonsGroupCalcAreaMin onClick={convector.calculateExpression} />
     </Flex>
   );
 };

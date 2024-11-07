@@ -11,7 +11,8 @@ import { useDiscountConv } from '../../hooks/useDiscountConv';
 import { ButtonsGroupCalcAreaMin } from '../ButtonsGroupCalcAreaMin';
 
 export const DesktopViewDiscountConv = () => {
-  const { inputPrice, inputDiscount, result, setInput } = useDiscountConv();
+  const { inputPrice, inputDiscount, result, setInput, changeInput } =
+    useDiscountConv();
 
   return (
     <Flex direction="column" justify="space-between" gap={4} h="100%">
@@ -19,9 +20,10 @@ export const DesktopViewDiscountConv = () => {
         <InputGroup>
           <InputLeftAddon>Цена: </InputLeftAddon>
           <Input
+            id="price"
             type="number"
             value={inputPrice.value}
-            onChange={inputPrice.onChange}
+            onChange={changeInput}
             autoFocus={inputPrice.focus}
             onFocus={inputPrice.onFocus}
           />
@@ -29,9 +31,10 @@ export const DesktopViewDiscountConv = () => {
         <InputGroup>
           <InputLeftAddon>Скидка: </InputLeftAddon>
           <Input
+            id="discount"
             type="number"
             value={inputDiscount.value}
-            onChange={inputDiscount.onChange}
+            onChange={changeInput}
             autoFocus={inputDiscount.focus}
             onFocus={inputDiscount.onFocus}
           />

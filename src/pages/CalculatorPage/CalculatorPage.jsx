@@ -1,10 +1,8 @@
 import { Flex, Divider } from '@chakra-ui/react';
-
 import { useHistoryContext } from '../../context/historyContext';
-
 import { useCalculator } from '../../hooks/useCalculator';
 import { addElementInArray } from '../../utils/addElementInArray';
-import { getElementID } from '../../utils/mathFunction';
+import { getButtonId } from '../../utils/mathFunction';
 import { ExpressionView } from '../../ui/ExpressionView';
 import { ButtonsGroupCalcArea } from '../../ui/ButtonsGroupCalcArea/ButtonsGroupCalcArea';
 
@@ -24,19 +22,18 @@ export const CalculatorPage = () => {
   };
 
   const handelClickButtonsGroupArea = (e) => {
-    const buttonID = getElementID(e);
+    const buttonID = getButtonId(e);
+    const isEqual = buttonID === 'btn-equal';
+    const isDelete = buttonID === 'btn-delete';
 
-    if (buttonID === 'btn-equal') {
-      calculateExpression(buttonID);
+    if (isEqual) {
+      calculateExpression(e);
       addHistory();
-    } else if (buttonID === 'btn-delete') {
-      calculateExpression(buttonID);
+    } else if (isDelete) {
+      calculateExpression(e);
       setHistory([]);
-    } else if (buttonID === 'btn-backspace') {
-      calculateExpression(buttonID);
-      console.log(buttonID);
     } else {
-      calculateExpression(buttonID);
+      calculateExpression(e);
     }
   };
 

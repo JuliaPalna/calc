@@ -4,7 +4,7 @@ import { backspaceElement } from '../utils/backspaceElement';
 import { addPercent } from '../utils/addPercent';
 import { addNumber } from '../utils/addNumber';
 import { addPoint } from '../utils/addPoint';
-import { isMathOperator } from './isMathOperator';
+import { isMathOperator } from './isFunction';
 import { deleteLastElement, getLastElement } from './functionString';
 
 export const getMathExpression = (expression, element) => {
@@ -19,11 +19,9 @@ export const getMathExpression = (expression, element) => {
   } else if (element === 'btn-delete') {
     newExpression = '0';
   } else if (element === 'btn-backspace') {
-    if (isZero(expression)) return;
-    newExpression = backspaceElement(expression);
+    newExpression = isZero(expression) ? '0' : backspaceElement(expression);
   } else if (element === 'btn-percent') {
-    if (isZero(expression)) return;
-    newExpression = addPercent(expression);
+    newExpression = isZero(expression) ? '0' : addPercent(expression);
   } else if (element === 'btn-equal') {
     newExpression = isMathOperator(getLastElement(expression))
       ? deleteLastElement(expression)

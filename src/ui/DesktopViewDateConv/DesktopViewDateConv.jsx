@@ -1,6 +1,5 @@
 import {
   Flex,
-  Center,
   HStack,
   Heading,
   Input,
@@ -12,24 +11,28 @@ import {
 import { useDateConv } from '../../hooks/useDateConv';
 
 export const DesktopViewDateConv = () => {
-  const {
-    initialDate,
-    finalDate,
-    difference,
-    changeInitialDate,
-    changeFinalDate,
-  } = useDateConv();
+  const { initialDate, finalDate, difference, changeDate } = useDateConv();
 
   return (
     <Flex direction="column" justify="space-between" gap={4}>
       <InputGroup>
         <InputLeftAddon>C:</InputLeftAddon>
-        <Input type="date" value={initialDate} onChange={changeInitialDate} />
+        <Input
+          id="initialDate"
+          type="date"
+          value={initialDate}
+          onChange={changeDate}
+        />
       </InputGroup>
 
       <InputGroup>
         <InputLeftAddon>До:</InputLeftAddon>
-        <Input type="date" value={finalDate} onChange={changeFinalDate} />
+        <Input
+          id="finalDate"
+          type="date"
+          value={finalDate}
+          onChange={changeDate}
+        />
       </InputGroup>
 
       <VStack>
