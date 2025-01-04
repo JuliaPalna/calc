@@ -1,8 +1,8 @@
 import { Box, Container } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../ColorModeSwitcher';
-import { MenuPage } from '../../pages/MenuPage';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Menu } from './Menu';
 
-export const AppCalculator = () => {
+export const AppPage = () => {
   return (
     <Container
       mt="10"
@@ -15,7 +15,8 @@ export const AppCalculator = () => {
       <Box position="absolute" top={3} right={8} zIndex={1}>
         <ColorModeSwitcher />
       </Box>
-      <MenuPage />
+
+      <Menu />
     </Container>
   );
 };

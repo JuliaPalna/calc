@@ -7,8 +7,8 @@ import { ARRAYUNITS } from '../../globals/arrayUnits';
 
 import { usePhysicalQuntityContext } from '../../context/physicalQuantityContext';
 
+import { DesktopViewСonvector } from './DesktopViewСonvector';
 import { ListButtons } from '../../ui/ListButtons';
-import { DesktopViewСonvector } from '../../ui/DesktopViewСonvector';
 
 import { useConvectorMode } from '../../hooks/useConvectorMode';
 import { arrayFilter } from '../../utils/arrayFilter';

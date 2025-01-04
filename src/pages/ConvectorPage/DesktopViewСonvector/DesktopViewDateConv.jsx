@@ -8,7 +8,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { useDateConv } from '../../hooks/useDateConv';
+import { useDateConv } from '../../../hooks/useDateConv';
 
 export const DesktopViewDateConv = () => {
   const { initialDate, finalDate, difference, changeDate } = useDateConv();

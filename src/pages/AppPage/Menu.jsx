@@ -5,7 +5,7 @@ import { ConvectorPage } from '../ConvectorPage';
 import { CalculatorPage } from '../CalculatorPage';
 import { IconUSD, IconCount, IconHistory, IconConv } from '../../ui/icon';
 
-export const MenuPage = () => {
+export const Menu = () => {
   return (
     <Tabs h="100%">
       <TabList h="8%">

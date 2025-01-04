@@ -7,8 +7,8 @@ import {
   Text,
   Flex,
 } from '@chakra-ui/react';
-import { useDiscountConv } from '../../hooks/useDiscountConv';
-import { ButtonsGroupCalcAreaMin } from '../ButtonsGroupCalcAreaMin';
+import { useDiscountConv } from '../../../hooks/useDiscountConv';
+import { ButtonsGroupCalcAreaMin } from '../../../ui/ButtonsGroupCalcAreaMin';
 
 export const DesktopViewDiscountConv = () => {
   const { inputPrice, inputDiscount, result, setInput, changeInput } =

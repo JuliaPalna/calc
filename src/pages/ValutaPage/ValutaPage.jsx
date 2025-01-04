@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useValutaConvector } from '../../hooks/useValutaConvector';
-import { DesktopViewCustomConv } from '../../ui/DesktopViewCustomConv';
+import { DesktopViewCustomConv } from '../ConvectorPage/DesktopViewСonvector/DesktopViewCustomConv';
 
 export const ValutaPage = () => {
   const { courseUsd, courseEuro, setCourseValuta } = useValutaConvector();

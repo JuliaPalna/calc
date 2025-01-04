@@ -1,8 +1,7 @@
-import { usePhysicalQuntityContext } from '../../context/physicalQuantityContext';
-
-import { DesktopViewCustomConv } from '../DesktopViewCustomConv';
-import { DesktopViewDateConv } from '../DesktopViewDateConv';
-import { DesktopViewDiscountConv } from '../DesktopViewDiscountConv';
+import { usePhysicalQuntityContext } from '../../../context/physicalQuantityContext';
+import { DesktopViewCustomConv } from './DesktopViewCustomConv';
+import { DesktopViewDateConv } from './DesktopViewDateConv';
+import { DesktopViewDiscountConv } from './DesktopViewDiscountConv';
 
 export const DesktopViewСonvector = () => {
   const { physicalQuntity } = usePhysicalQuntityContext();

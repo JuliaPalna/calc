@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react';
-import { useConvector } from '../../hooks/useConvector';
-import { SelectUnit } from '../SelectUnit';
-import { ButtonsGroupCalcAreaMin } from '../ButtonsGroupCalcAreaMin';
+import { useConvector } from '../../../hooks/useConvector';
+import { SelectUnit } from '../../../ui/SelectUnit';
+import { ButtonsGroupCalcAreaMin } from '../../../ui/ButtonsGroupCalcAreaMin';
 
 export const DesktopViewCustomConv = ({ array }) => {
   const { convector, selectFirst, selectSecond } = useConvector(array);
