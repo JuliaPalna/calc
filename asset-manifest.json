@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.3b49077e.css",
-    "main.js": "/static/js/main.714a044a.js",
-    "index.html": "/index.html"
+    "main.css": "/calc/static/css/main.3b49077e.css",
+    "main.js": "/calc/static/js/main.714a044a.js",
+    "index.html": "/calc/index.html"
   },
   "entrypoints": [
     "static/css/main.3b49077e.css",
