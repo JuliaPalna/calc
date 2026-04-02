@@ -1,4 +1,4 @@
- <p>Ссылка на калькулятор: <a href="[mailto:palna.julia@gmail.com](https://codesandbox.io/p/github/JuliaPalna/calc/main?workspaceId=ws_QRxeypug487FtV1o9h9ky8)">codesandbox</a></p>
+ <p>Ссылка на калькулятор: <a href="https://codesandbox.io/p/github/JuliaPalna/calc/main?workspaceId=ws_QRxeypug487FtV1o9h9ky8">codesandbox</a></p>
 
 # Начало работы с умным калькулятором
 Проект представляет собой веб-приложение, которое объединяет функционал калькулятора и конвертера единиц. Приложение реализовано с использованием React.js и включает в себя такие хуки, как useContext, useRef, useEffect, а также создание пользовательских хуков для управления состоянием и логикой приложения.
